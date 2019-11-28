@@ -37,7 +37,8 @@ gulp.task('browser-sync', function(){
 
 gulp.task('script', function(){
   return gulp.src([
-    'node_modules/slick-carousel/slick/slick.min.js'
+    'node_modules/slick-carousel/slick/slick.min.js',
+    'node_modules/mixitup/dist/mixitup.min.js' 
   ])
   .pipe(concat('lib.min.js'))
   .pipe(uglify())
