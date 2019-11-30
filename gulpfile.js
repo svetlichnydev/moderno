@@ -38,7 +38,8 @@ gulp.task('browser-sync', function(){
 gulp.task('script', function(){
   return gulp.src([
     'node_modules/slick-carousel/slick/slick.min.js',
-    'node_modules/mixitup/dist/mixitup.min.js' 
+    'node_modules/mixitup/dist/mixitup.min.js',
+    'node_modules/rateyo/min/jquery.rateyo.min.js' 
   ])
   .pipe(concat('lib.min.js'))
   .pipe(uglify())
@@ -49,12 +50,20 @@ gulp.task('style', function(){
   return gulp.src([
     'node_modules/normalize.css/normalize.css',
     'node_modules/slick-carousel/slick/slick.scss',
-    'node_modules/slick-carousel/slick/slick-theme.scss'
+    'node_modules/slick-carousel/slick/slick-theme.scss',
+    'node_modules/rateyo/min/jquery.rateyo.min.css'
   ])
   .pipe(sass({outputStyle: 'compressed'}))
   .pipe(concat('lib.min.css'))
   .pipe(autoprefixer())
   .pipe(gulp.dest('app/css'));  
+});
+
+gulp.task('font', function(){
+  return gulp.src([
+    'node_modules/slick-carousel/slick/fonts/slick.woff'
+  ])
+  .pipe(gulp.dest('app/css/fonts')); 
 });
 
  gulp.task('watch', function(){
@@ -63,4 +72,4 @@ gulp.task('style', function(){
   gulp.watch('app/js/*.js', gulp.parallel('js'));
 });
 
-gulp.task('default', gulp.parallel('style', 'script', 'sass', 'watch', 'browser-sync'));
+gulp.task('default', gulp.parallel('style', 'script', 'font', 'sass', 'watch', 'browser-sync'));
