@@ -3,7 +3,7 @@
 .LSOverride
 .vs
 
-layout
-node_modules
-app/css
-app/css/fonts
+layout/
+node_modules/
+app/css/
+app/css/fonts/
