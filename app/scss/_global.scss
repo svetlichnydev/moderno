@@ -46,3 +46,7 @@ body{
     line-height: 60px;
     margin-bottom: 30px;
 }
+
+@mixin f700{
+    font-weight: 700;
+}
